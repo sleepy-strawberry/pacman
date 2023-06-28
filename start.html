@@ -1,0 +1,94 @@
+<!-- Animacja trwa 1 sekundę z wyjątkiem ostatniego elementu w którym trwa 3 sekund (ta sama animacja, ale dłuższa) -->
+<!-- ostatni element ma odwrócony kierunek (reverse) -->
+<!-- Kolory elementów: lewy górny róg: czarny, prawy górny róg: czerwony, prawy dolny róg: zielony i lewy dolny róg: niebieski -->
+<!-- Zrób tylko jedną animację (keyframes) -->
+<!-- Opóźnienie .2s (kaażdy kolejny element) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      div {
+        height: 30px;
+        width: 30px;
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        top: 0;
+        left: -30px;
+        animation: disco 3.75s linear infinite;
+        border-top-right-radius: 50%;
+        border-top-left-radius: 50%;
+      }
+
+      @keyframes disco {
+        0% {
+          background-color: rgb(236, 166, 5);
+        }
+        25% {
+          background-color: rgb(236, 18, 225);
+          top: 0;
+          left: calc(100% - 30px);
+        }
+        50% {
+          background-color: red;
+          top: calc(100% - 30px);
+          left: calc(100% - 30px);
+        }
+        75% {
+          background-color: greenyellow;
+          top: calc(100% - 30px);
+          left: 0;
+        }
+        100% {
+          background-color: rgb(128, 10, 238);
+          left: 0;
+          bottom: 0;
+        }
+      }
+
+      /* div:nth-child(1) {
+        animation-direction: alternate;
+        animation-timing-function: ease;
+        animation-duration: 3s;
+      } */
+      div:nth-child(2) {
+        animation-delay: 1s;
+      }
+      div:nth-child(3) {
+        animation-delay: 1.5s;
+      }
+      div:nth-child(4) {
+        animation-delay: 2s;
+      }
+      div:nth-child(5) {
+        animation-delay: 2.5s;
+      }
+      div:nth-child(6) {
+        animation-direction: reverse;
+        animation-duration: 3s;
+        animation-timing-function: ease;
+      }
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <img src="pacman.jpg" alt="pacman-game" />
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </body>
+</html>
